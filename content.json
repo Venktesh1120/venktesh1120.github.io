@@ -1,0 +1,101 @@
+{
+  "profile": {
+    "name": "Venktesh Kumar Gupta",
+    "title": "Product Manager",
+    "tagline": "Turning user research and data into products people actually want.",
+    "summary": "Results-driven Product Management professional with 3 years of experience leveraging user research, product discovery, and data-driven insights to solve business problems and improve customer experiences. Proven ability to collaborate with cross-functional teams, prioritise product requirements, and deliver impactful digital solutions across consulting and product environments.",
+    "email": "venkteshkumargupta@gmail.com",
+    "phone": "+91-8986822200",
+    "location": "Bengaluru, India",
+    "linkedin": "https://linkedin.com/in/REPLACE_WITH_YOUR_HANDLE",
+    "resumeFile": ""
+  },
+  "skills": {
+    "Product": ["Product Roadmap", "PRD/BRD Writing", "User Story Mapping", "Agile/Scrum", "OKRs", "RICE", "Kano Model", "MoSCoW", "Jobs-to-be-Done (JTBD)"],
+    "Research": ["User Interviews", "Usability Testing", "NPS", "Customer Journey Mapping", "Persona Development", "Competitive Analysis", "A/B Testing", "Feature Flagging"],
+    "Analytics": ["SQL", "Mixpanel", "Amplitude", "Looker", "Google Analytics", "Firebase", "Funnel Analysis", "Cohort Analysis", "Retention Metrics", "Power BI", "KPI Dashboards", "Excel"],
+    "Tools": ["Jira", "Confluence", "Figma", "Miro", "Notion", "ProductPlan", "Slack", "Asana", "Postman (API basics)"]
+  },
+  "experience": [
+    {
+      "company": "Ernst & Young GDS LLP",
+      "role": "Associate Consultant, Strategy",
+      "location": "Bengaluru",
+      "dates": "Nov'21 – Jun'24",
+      "bullets": [
+        "Conducted market research, competitive analysis, and technology assessments for 10+ global clients, identifying customer needs and industry trends that informed strategic product decisions and business opportunities.",
+        "Partnered with business stakeholders and engineering teams to gather requirements and translate business challenges into scalable technology solutions, driving digital transformation initiatives across multiple client engagements.",
+        "Designed and developed Power BI and Tableau dashboards using SQL and Python, enabling real-time KPI tracking that improved reporting efficiency by 40% and enhanced visibility into business performance metrics.",
+        "Analysed application usage, operational performance, and customer feedback data to generate actionable insights that influenced product enhancements and process optimisation across multiple engagements.",
+        "Collaborated with cross-functional teams to improve user adoption of enterprise applications by simplifying workflows and enhancing user experience, delivering training programs that reduced user errors by 40%.",
+        "Supported product evaluation and vendor assessment exercises by conducting gap analyses, solution benchmarking, and feasibility assessments to recommend technology investments aligned with business objectives."
+      ]
+    },
+    {
+      "company": "Akshaya Chaitanya",
+      "role": "Product Management Intern",
+      "location": "Mumbai",
+      "dates": "Apr'25 – May'25",
+      "bullets": [
+        "Designed and executed A/B tests on pilot features to validate user engagement hypotheses, driving data-backed iterations that improved conversion rates across key user flows.",
+        "Developed and managed the end-to-end product roadmap for a pilot program, translating research insights from 160+ stakeholders into a phased execution plan with defined milestones and delivery timelines.",
+        "Shaped pilot design by conducting structured primary research with 160+ stakeholders, gathering and validating product requirements that directly informed BRD-aligned feature specifications.",
+        "Cut ad-hoc reporting effort by building automated KPI dashboards using Google Analytics and Excel, establishing reusable performance tracking frameworks that reduced leadership reporting time and improved visibility.",
+        "Ran sprint planning, backlog prioritisation, and structured risk tracking across an 8-week program, maintaining 100% on-time delivery of all programme outputs across cross-functional teams.",
+        "Visualised product requirements and user journeys through User Story Mapping, aligning cross-functional teams on project scope and enabling iterative delivery across multiple sprints."
+      ]
+    }
+  ],
+  "education": [
+    { "school": "SDA Bocconi School of Management", "location": "Mumbai", "dates": "May'26", "degree": "International Master in Business (PGP)" },
+    { "school": "SRM Institute of Science & Technology", "location": "Chennai", "dates": "May'21", "degree": "Bachelor's in Technology (Electrical & Electronics Engineering)" }
+  ],
+  "certifications": [
+    { "name": "Lean Six Sigma Green Belt Certification", "issuer": "Grant Thornton", "year": "2025" },
+    { "name": "Business Analytics and Business Intelligence using Python", "issuer": "KPMG", "year": "2025" }
+  ],
+  "caseStudies": [
+    {
+      "id": "ey-kpi-dashboards",
+      "title": "Enterprise KPI Reporting — Real-Time Visibility for Global Clients",
+      "company": "Ernst & Young GDS LLP",
+      "tags": ["Analytics", "Dashboards", "Stakeholder Management"],
+      "draft": true,
+      "problem": "Client stakeholders across 10+ global engagements lacked real-time visibility into business performance, relying on manual, ad-hoc reporting that slowed decision-making.",
+      "approach": "Conducted market research and technology assessments to understand client needs, then partnered with business stakeholders and engineering teams to translate reporting gaps into a scalable dashboard solution.",
+      "actions": [
+        "Designed and built Power BI and Tableau dashboards using SQL and Python for real-time KPI tracking",
+        "Ran gap analyses and solution benchmarking to guide tooling and vendor decisions",
+        "Delivered training programs to drive adoption of new reporting workflows across teams"
+      ],
+      "result": [
+        "40% improvement in reporting efficiency",
+        "40% reduction in user errors through simplified workflows"
+      ],
+      "note": "Draft generated from resume bullets — replace with the specific client context, screenshots, and metrics you're able to share publicly."
+    },
+    {
+      "id": "akshaya-chaitanya-pilot",
+      "title": "Pilot Program Roadmap — From 160+ Stakeholder Interviews to Shipped Features",
+      "company": "Akshaya Chaitanya",
+      "tags": ["Product Roadmap", "A/B Testing", "User Research"],
+      "draft": true,
+      "problem": "A new pilot program needed a validated feature set and roadmap, but requirements were scattered across 160+ stakeholders with no structured way to prioritize what to build first.",
+      "approach": "Ran structured primary research across all 160+ stakeholders to surface and validate requirements, then translated findings into BRD-aligned feature specs and a phased execution plan.",
+      "actions": [
+        "Conducted structured stakeholder research to gather and validate product requirements",
+        "Built and managed an end-to-end product roadmap with defined milestones over an 8-week program",
+        "Designed and ran A/B tests on pilot features to validate engagement hypotheses",
+        "Used User Story Mapping to align cross-functional teams on scope and enable iterative delivery",
+        "Built automated KPI dashboards in Google Analytics and Excel to replace ad-hoc reporting"
+      ],
+      "result": [
+        "Improved conversion rates across key user flows from data-backed iteration",
+        "100% on-time delivery of all programme outputs across the 8-week sprint cycle",
+        "Reduced leadership reporting time via reusable performance tracking frameworks"
+      ],
+      "note": "Draft generated from resume bullets — replace with the specific product, screenshots, and metrics you're able to share publicly."
+    }
+  ],
+  "projects": []
+}
