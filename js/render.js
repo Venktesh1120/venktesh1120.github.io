@@ -25,6 +25,21 @@ function renderFooter(profile) {
   ]);
   mount.appendChild(row);
   mount.appendChild(el("div", { text: `${profile.location || ""}` }));
+  if (profile.openTo) {
+    mount.appendChild(el("div", { className: "open-to", text: profile.openTo }));
+  }
+}
+
+function renderStatRow(mount, stats) {
+  if (!mount || !stats || stats.length === 0) return;
+  stats.forEach((s) => {
+    mount.appendChild(
+      el("div", { className: "stat" }, [
+        el("div", { className: "stat-value", text: s.value }),
+        el("div", { className: "stat-label", text: s.label }),
+      ])
+    );
+  });
 }
 
 function resumeDownloadName(resumeFile) {
@@ -62,6 +77,46 @@ function renderCtas(profile) {
     })
   );
   mount.appendChild(el("a", { className: "btn secondary", href: "projects.html", text: "View Projects / MVPs" }));
+}
+
+function renderHeroStats(profile) {
+  const mount = document.getElementById("hero-stats");
+  renderStatRow(mount, profile.stats);
+}
+
+function renderPhilosophy(philosophy) {
+  const mount = document.getElementById("philosophy");
+  const section = document.getElementById("philosophy-section");
+  if (!mount) return;
+  if (!philosophy) {
+    if (section) section.style.display = "none";
+    return;
+  }
+  const heading = document.getElementById("philosophy-heading");
+  if (heading && philosophy.heading) heading.textContent = philosophy.heading;
+  if (philosophy.statement) {
+    mount.appendChild(el("p", { className: "philosophy-statement", text: philosophy.statement }));
+  }
+  if (philosophy.pipeline && philosophy.pipeline.length > 0) {
+    const row = el("div", { className: "pipeline-row" });
+    philosophy.pipeline.forEach((step, i) => {
+      row.appendChild(el("div", { className: "pipeline-step", text: step }));
+      if (i < philosophy.pipeline.length - 1) {
+        row.appendChild(el("div", { className: "pipeline-arrow", text: "→" }));
+      }
+    });
+    mount.appendChild(row);
+  }
+}
+
+function renderExperienceIntro(intro) {
+  const mount = document.getElementById("experience-intro");
+  if (!mount) return;
+  if (!intro) {
+    mount.style.display = "none";
+    return;
+  }
+  mount.textContent = intro;
 }
 
 function renderSkills(skills) {
@@ -134,9 +189,12 @@ function renderCaseStudies(caseStudies) {
       document.createTextNode(cs.title),
       cs.draft ? el("span", { className: "draft-badge", text: "DRAFT" }) : null,
     ]);
+    const metricsRow = el("div", { className: "stat-row" });
+    renderStatRow(metricsRow, cs.metrics);
     const card = el("div", { className: "case-study-card" }, [
       titleRow,
       el("div", { className: "cs-company", text: `${cs.company} · ${(cs.tags || []).join(", ")}` }),
+      cs.metrics && cs.metrics.length > 0 ? metricsRow : null,
       el("h4", { text: "Problem" }),
       el("p", { text: cs.problem }),
       el("h4", { text: "Approach" }),
@@ -176,7 +234,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await loadContent();
     renderHero(data.profile);
     renderCtas(data.profile);
+    renderHeroStats(data.profile);
+    renderPhilosophy(data.philosophy);
     renderSkills(data.skills);
+    renderExperienceIntro(data.experienceIntro);
     renderExperience(data.experience);
     renderEducation(data.education);
     renderCertifications(data.certifications);

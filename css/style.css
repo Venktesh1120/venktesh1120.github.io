@@ -109,6 +109,79 @@ main {
   color: var(--accent);
 }
 
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.hero-stats .stat-value {
+  font-size: 1.6rem;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.philosophy-statement {
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+
+.pipeline-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pipeline-step {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pipeline-arrow {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.section-intro {
+  color: var(--text-muted);
+  font-style: italic;
+  margin: -8px 0 20px;
+}
+
+footer .open-to {
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
 section {
   margin-top: 56px;
 }

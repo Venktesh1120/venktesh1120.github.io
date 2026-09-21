@@ -7,7 +7,20 @@
     "email": "venkteshkumargupta@gmail.com",
     "location": "Bengaluru, India",
     "linkedin": "https://www.linkedin.com/in/venkteshgupta/",
-    "resumeFile": "assets/VenkteshKumarGupta_Resume.pdf"
+    "resumeFile": "assets/VenkteshKumarGupta_Resume.pdf",
+    "openTo": "Open to Product Manager / Associate PM roles — particularly analytics-driven, B2B or consumer products.",
+    "stats": [
+      { "value": "3+", "label": "Years Experience" },
+      { "value": "10+", "label": "Global Clients" },
+      { "value": "160+", "label": "Stakeholders Researched" },
+      { "value": "40%", "label": "Efficiency Improvement" },
+      { "value": "100%", "label": "On-Time Delivery" }
+    ]
+  },
+  "philosophy": {
+    "heading": "How I Approach Product",
+    "statement": "Good product decisions come from evidence, not opinion — talk to users, prioritise ruthlessly, ship small, and let data tell you what to do next.",
+    "pipeline": ["User Signal", "Research", "Prioritize (RICE / JTBD)", "Roadmap", "Ship", "Measure"]
   },
   "skills": {
     "Product": ["Product Roadmap", "PRD/BRD Writing", "User Story Mapping", "Agile/Scrum", "OKRs", "RICE", "Kano Model", "MoSCoW", "Jobs-to-be-Done (JTBD)"],
@@ -15,6 +28,7 @@
     "Analytics": ["SQL", "Mixpanel", "Amplitude", "Looker", "Google Analytics", "Firebase", "Funnel Analysis", "Cohort Analysis", "Retention Metrics", "Power BI", "KPI Dashboards", "Excel"],
     "Tools": ["Jira", "Confluence", "Figma", "Miro", "Notion", "ProductPlan", "Slack", "Asana", "Postman (API basics)"]
   },
+  "experienceIntro": "From strategy consulting to hands-on product execution.",
   "experience": [
     {
       "company": "Ernst & Young GDS LLP",
@@ -60,6 +74,11 @@
       "company": "Ernst & Young GDS LLP",
       "tags": ["Analytics", "Dashboards", "Stakeholder Management"],
       "draft": true,
+      "metrics": [
+        { "value": "10+", "label": "Global Clients" },
+        { "value": "40%", "label": "Reporting Efficiency" },
+        { "value": "40%", "label": "Fewer User Errors" }
+      ],
       "problem": "Client stakeholders across 10+ global engagements lacked real-time visibility into business performance, relying on manual, ad-hoc reporting that slowed decision-making.",
       "approach": "Conducted market research and technology assessments to understand client needs, then partnered with business stakeholders and engineering teams to translate reporting gaps into a scalable dashboard solution.",
       "actions": [
@@ -79,6 +98,11 @@
       "company": "Akshaya Chaitanya",
       "tags": ["Product Roadmap", "A/B Testing", "User Research"],
       "draft": true,
+      "metrics": [
+        { "value": "160+", "label": "Stakeholders" },
+        { "value": "100%", "label": "On-Time Delivery" },
+        { "value": "8-Week", "label": "Program Cycle" }
+      ],
       "problem": "A new pilot program needed a validated feature set and roadmap, but requirements were scattered across 160+ stakeholders with no structured way to prioritize what to build first.",
       "approach": "Ran structured primary research across all 160+ stakeholders to surface and validate requirements, then translated findings into BRD-aligned feature specs and a phased execution plan.",
       "actions": [
