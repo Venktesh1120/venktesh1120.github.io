@@ -27,6 +27,11 @@ function renderFooter(profile) {
   mount.appendChild(el("div", { text: `${profile.location || ""}` }));
 }
 
+function resumeDownloadName(resumeFile) {
+  const parts = String(resumeFile).split("/").filter(Boolean);
+  return parts[parts.length - 1] || "resume.pdf";
+}
+
 function renderHero(profile) {
   const mount = document.getElementById("hero");
   if (!mount) return;
@@ -34,6 +39,29 @@ function renderHero(profile) {
   mount.appendChild(el("div", { className: "role", text: profile.title }));
   mount.appendChild(el("p", { className: "tagline", text: profile.tagline }));
   mount.appendChild(el("p", { text: profile.summary }));
+}
+
+function renderCtas(profile) {
+  const mount = document.getElementById("cta-row");
+  if (!mount) return;
+  if (profile.resumeFile) {
+    mount.appendChild(
+      el("a", {
+        className: "btn primary",
+        href: profile.resumeFile,
+        text: "Download Resume",
+        attrs: { download: resumeDownloadName(profile.resumeFile) },
+      })
+    );
+  }
+  mount.appendChild(
+    el("a", {
+      className: profile.resumeFile ? "btn secondary" : "btn primary",
+      href: "case-studies.html",
+      text: "View Case Studies",
+    })
+  );
+  mount.appendChild(el("a", { className: "btn secondary", href: "projects.html", text: "View Projects / MVPs" }));
 }
 
 function renderSkills(skills) {
@@ -147,6 +175,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const data = await loadContent();
     renderHero(data.profile);
+    renderCtas(data.profile);
     renderSkills(data.skills);
     renderExperience(data.experience);
     renderEducation(data.education);
