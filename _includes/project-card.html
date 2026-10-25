@@ -1,0 +1,17 @@
+{% assign pr = include.project %}
+{% assign type_info = site.data.project_types[pr.type] %}
+<a class="card" href="{{ pr.url | relative_url }}">
+  <div class="card-meta">
+    {% if type_info %}<span class="pill">{{ type_info.label }}</span>{% endif %}
+    {% if pr.status %}<span class="pill status-{{ pr.status }}">{{ site.data.project_statuses[pr.status] | default: pr.status }}</span>{% endif %}
+    {% if pr.org %}<span class="muted">{{ pr.org }}</span>{% endif %}
+  </div>
+  <h3>{{ pr.title }}</h3>
+  {% if pr.summary %}<p>{{ pr.summary }}</p>{% endif %}
+  {% if pr.metrics %}{% include stat-row.html stats=pr.metrics %}{% endif %}
+  {% if pr.concepts %}
+  <div class="chip-row">
+    {% for key in pr.concepts %}{% assign c = site.data.genai_concepts | where: "key", key | first %}<span class="chip">{{ c.name | default: key }}</span>{% endfor %}
+  </div>
+  {% endif %}
+</a>

@@ -1,0 +1,28 @@
+name: Venktesh Kumar Gupta
+title: Product Manager
+tagline: Turning user research and data into products people actually want.
+summary: >-
+  Results-driven Product Management professional with 3 years of experience leveraging user research,
+  product discovery, and data-driven insights to solve business problems and improve customer experiences.
+  Proven ability to collaborate with cross-functional teams, prioritise product requirements, and deliver
+  impactful digital solutions across consulting and product environments.
+email: venkteshkumargupta@gmail.com
+location: Bengaluru, India
+linkedin: https://www.linkedin.com/in/venkteshgupta/
+github: https://github.com/Venktesh1120
+resume_file: assets/VenkteshKumarGupta_Resume.pdf
+open_to: Open to AI Product Manager / Associate PM roles building GenAI-powered products.
+
+# Keep these to numbers a recruiter can verify from the experience section below.
+stats:
+  - { value: "3+", label: "Years Experience" }
+  - { value: "10+", label: "Global Clients" }
+  - { value: "160+", label: "Stakeholders Researched" }
+  - { value: "40%", label: "Reporting Efficiency Gain" }
+
+philosophy:
+  heading: How I Approach Product
+  statement: >-
+    Good product decisions come from evidence, not opinion — talk to users, prioritise ruthlessly,
+    ship small, and let data tell you what to do next.
+  pipeline: ["User Signal", "Research", "Prioritize (RICE / JTBD)", "Roadmap", "Ship", "Measure"]
