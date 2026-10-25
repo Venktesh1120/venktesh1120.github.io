@@ -1,0 +1,5 @@
+# Add a "GenAI" group here once you have projects or learnings that back each item up.
+Product: ["Product Roadmap", "PRD/BRD Writing", "User Story Mapping", "Agile/Scrum", "OKRs", "RICE", "Kano Model", "MoSCoW", "Jobs-to-be-Done (JTBD)"]
+Research: ["User Interviews", "Usability Testing", "NPS", "Customer Journey Mapping", "Persona Development", "Competitive Analysis", "A/B Testing", "Feature Flagging"]
+Analytics: ["SQL", "Mixpanel", "Amplitude", "Looker", "Google Analytics", "Firebase", "Funnel Analysis", "Cohort Analysis", "Retention Metrics", "Power BI", "KPI Dashboards", "Excel"]
+Tools: ["Jira", "Confluence", "Figma", "Miro", "Notion", "ProductPlan", "Slack", "Asana", "Postman (API basics)"]

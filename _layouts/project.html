@@ -1,0 +1,44 @@
+---
+layout: default
+nav: work
+---
+{% assign type_info = site.data.project_types[page.type] %}
+<article class="case-study">
+  <a class="back-link" href="{{ '/work/' | relative_url }}">← All work</a>
+  <div class="card-meta">
+    {% if type_info %}<span class="pill">{{ type_info.label }}</span>{% endif %}
+    {% if page.status %}<span class="pill status-{{ page.status }}">{{ site.data.project_statuses[page.status] | default: page.status }}</span>{% endif %}
+  </div>
+  <h1>{{ page.title }}</h1>
+  {% if page.summary %}<p class="tagline">{{ page.summary }}</p>{% endif %}
+
+  <dl class="facts">
+    {% if page.org %}<div><dt>Organisation</dt><dd>{{ page.org }}</dd></div>{% endif %}
+    {% if page.role %}<div><dt>My role</dt><dd>{{ page.role }}</dd></div>{% endif %}
+    {% if page.timeline %}<div><dt>Timeline</dt><dd>{{ page.timeline }}</dd></div>{% endif %}
+    {% if page.team %}<div><dt>Team</dt><dd>{{ page.team }}</dd></div>{% endif %}
+    {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack | join: ", " }}</dd></div>{% endif %}
+  </dl>
+
+  {% if page.metrics %}{% include stat-row.html stats=page.metrics class="stat-row boxed" %}{% endif %}
+
+  {% if page.concepts %}
+  <div class="chip-row concept-row">
+    <span class="muted">GenAI concepts:</span>
+    {% for key in page.concepts %}{% assign c = site.data.genai_concepts | where: "key", key | first %}<span class="chip" title="{{ c.blurb | escape }}">{{ c.name | default: key }}</span>{% endfor %}
+  </div>
+  {% endif %}
+
+  {% if page.links %}
+  <div class="cta-row">
+    {% if page.links.demo %}<a class="btn primary" href="{{ page.links.demo }}">Live demo</a>{% endif %}
+    {% if page.links.repo %}<a class="btn secondary" href="{{ page.links.repo }}">Code</a>{% endif %}
+    {% if page.links.prd %}<a class="btn secondary" href="{{ page.links.prd }}">PRD</a>{% endif %}
+    {% if page.links.writeup %}<a class="btn secondary" href="{{ page.links.writeup }}">Write-up</a>{% endif %}
+  </div>
+  {% endif %}
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

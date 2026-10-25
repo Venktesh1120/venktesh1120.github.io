@@ -1,48 +1,56 @@
 # Portfolio Site
 
-A static, multi-page Product Management portfolio. No build step, no framework, no paid hosting.
+Product Manager portfolio, built with Jekyll so that GitHub Pages renders it with no build step on your side.
+Every project and every learning note is **one Markdown file**. Add a file, push, and it appears on the
+site, in the Work or Learnings list, and in the home page "GenAI Evidence" map.
 
-## Structure
+## Where things live
 
-- `index.html` — landing page (bio, skills, experience, education, certifications)
-- `case-studies.html` — case study write-ups
-- `projects.html` — MVPs / side projects
-- `content.json` — **all editable content lives here**. Edit this file to update any page; the HTML/JS never needs to change for a content update.
-- `css/style.css` — styling
-- `js/render.js` — reads `content.json` and renders it into each page
+| What | Where |
+|---|---|
+| Name, tagline, summary, contact, hero stats, philosophy | `_data/profile.yml` |
+| Work history | `_data/experience.yml` |
+| Skills, education, certifications | `_data/skills.yml`, `_data/education.yml`, `_data/certifications.yml` |
+| GenAI concept vocabulary (for tagging) | `_data/genai_concepts.yml` |
+| Project types shown on the Work page | `_data/project_types.yml` |
+| Case studies, GenAI builds, teardowns | `_projects/<slug>.md` → `/work/<slug>/` |
+| Learning notes | `_learnings/<slug>.md` → `/learnings/<slug>/` |
+| Templates to copy | `templates/project.md`, `templates/learning.md` (not published) |
+| Layouts and styling | `_layouts/`, `_includes/`, `css/style.css` |
 
-## Updating content
+## Adding a project
 
-Open `content.json` and edit the relevant section:
+1. Copy `templates/project.md` to `_projects/<short-slug>.md`.
+2. Fill in the front matter (type, status, role, metrics, `concepts`) and each section of the body.
+3. Leave `published: false` while it's a draft. Unpublished files are never built, so nothing half-done goes live.
+4. When it's ready, delete the `published: false` line (or set it to `true`) and push.
 
-- `profile` — name, title, tagline, summary, contact info, LinkedIn URL (replace the placeholder!)
-- `skills` — grouped skill chips
-- `experience` — work history bullets
-- `caseStudies` — each entry has `problem` / `approach` / `actions` / `result`. Remove the `"draft": true` field once you've replaced the placeholder text with real details. Remove the `note` field too.
-- `projects` — currently empty; add `{ "name", "tags", "description", "link" }` objects as you build things
+`type` decides which group it appears under on the Work page (`genai-build`, `case-study`, `teardown`).
+`featured: true` puts it on the home page (up to 4). `concepts` links it to the GenAI Evidence map.
 
-No coding needed for text updates — just edit the JSON and save.
+## Adding a learning note
+
+Copy `templates/learning.md` to `_learnings/<short-slug>.md` and follow the same steps.
+Use `applied_in: [project-slug]` to link a note to the project where you used it.
+The Learnings nav link appears automatically once the first note is published.
+
+## How the GenAI Evidence map works
+
+The home page lists each concept from `_data/genai_concepts.yml` that is tagged on at least one published
+project or learning, with links to that work. A concept with nothing behind it is not shown, so the site
+never claims a skill you haven't demonstrated. Tag honestly: only add a concept if the write-up shows it.
 
 ## Previewing locally
 
-Because the pages fetch `content.json` via JavaScript, opening `index.html` directly by double-clicking it won't work in most browsers (blocked by CORS on `file://`). Run a tiny local server instead:
+Pushing to `main` is enough; GitHub Pages builds the site in about a minute. To preview first:
 
 ```bash
-python3 -m http.server 8000
+gem install jekyll -v 3.10.0 kramdown-parser-gfm webrick
+jekyll serve              # http://localhost:4000
+jekyll serve --unpublished   # also shows drafts with published: false
 ```
 
-Then open `http://localhost:8000` in a browser.
+## Hidden notes
 
-## Deploying for free — GitHub Pages
-
-1. Create a new **public** GitHub repository (e.g. `portfolio-site`, or name it `<your-username>.github.io` if you want it at the root of your GitHub domain).
-2. Push this folder to that repository.
-3. In the repo, go to **Settings → Pages**.
-4. Under "Build and deployment", set **Source** to `Deploy from a branch`, branch `main`, folder `/ (root)`.
-5. Save. GitHub gives you a live URL within a minute or two (`https://<username>.github.io/<repo>/` or `https://<username>.github.io/` for a user site).
-
-No payment, no card, no subscription required — this is free for public repositories indefinitely.
-
-## Adding a resume download (optional)
-
-Drop your resume PDF into an `assets/` folder, set `"resumeFile": "assets/resume.pdf"` in `content.json`, and add a download link in `index.html`/`js/render.js` if you want a direct download button.
+Text inside `{% comment %} ... {% endcomment %}` in a Markdown file is never rendered.
+The two existing case studies use this to list what's still missing.

@@ -60,8 +60,9 @@ nav.site-nav a.active {
   color: var(--accent);
 }
 
-main {
-  padding: 48px 0 80px;
+main.wrap {
+  padding-top: 48px;
+  padding-bottom: 80px;
 }
 
 .hero h1 {
@@ -338,3 +339,110 @@ footer .contact-row a {
   header.site-header .wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
   nav.site-nav a { margin-left: 0; margin-right: 18px; }
 }
+
+/* ---- Cards, work and learnings pages ---- */
+
+.muted { color: var(--text-muted); font-size: 0.9rem; }
+
+.page-head { margin-top: 0; }
+.page-head h1 { font-size: 2rem; margin: 0 0 8px; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+a.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+.card-grid a.card { margin-bottom: 0; }
+a.card:hover { border-color: var(--accent); }
+a.card h3 { margin: 8px 0 6px; font-size: 1.08rem; }
+a.card p { margin: 0 0 12px; color: var(--text-muted); }
+a.card .stat-row { gap: 18px; margin-bottom: 12px; }
+a.card .stat-value { font-size: 1.15rem; }
+
+.card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.pill.status-prototype, .pill.status-in-progress { background: #fbeeda; color: #8a5a1f; }
+.pill.status-concept { background: #eceae6; color: var(--text-muted); }
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.concept {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.concept h3 { margin: 0 0 4px; font-size: 1rem; }
+.concept p { margin: 0 0 8px; }
+.concept ul { margin: 0; padding-left: 18px; font-size: 0.92rem; }
+.concept a { color: var(--accent); }
+
+/* ---- Case study page ---- */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.back-link:hover { color: var(--accent); }
+
+.case-study h1 { font-size: 1.9rem; line-height: 1.25; margin: 12px 0 8px; }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px 24px;
+  margin: 24px 0;
+}
+.facts dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+.facts dd { margin: 2px 0 0; font-weight: 600; }
+
+.stat-row.boxed {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+}
+
+.concept-row { align-items: center; margin-bottom: 8px; }
+
+.prose { margin-top: 32px; }
+.prose h2 { margin-top: 40px; }
+.prose a { color: var(--accent); }
+.prose img { max-width: 100%; border: 1px solid var(--border); border-radius: var(--radius); }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 12px 0; display: block; overflow-x: auto; }
+.prose th, .prose td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+.prose th { background: var(--accent-soft); }

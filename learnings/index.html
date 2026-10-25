@@ -1,0 +1,22 @@
+---
+layout: default
+title: Learnings
+nav: learnings
+description: Notes on GenAI concepts and what they change about product decisions.
+---
+{% assign notes = site.learnings | sort: "date" | reverse %}
+<section class="page-head">
+  <h1>Learnings</h1>
+  <p class="tagline">Short notes on GenAI concepts I've studied, and what each one changes about how I'd make product decisions.</p>
+</section>
+
+<section>
+  {% for n in notes %}
+  <a class="card" href="{{ n.url | relative_url }}">
+    <div class="card-meta"><span class="muted">{{ n.date | date: "%b %Y" }}</span></div>
+    <h3>{{ n.title }}</h3>
+    {% if n.summary %}<p>{{ n.summary }}</p>{% endif %}
+    {% if n.concepts %}<div class="chip-row">{% for key in n.concepts %}{% assign c = site.data.genai_concepts | where: "key", key | first %}<span class="chip">{{ c.name | default: key }}</span>{% endfor %}</div>{% endif %}
+  </a>
+  {% endfor %}
+</section>

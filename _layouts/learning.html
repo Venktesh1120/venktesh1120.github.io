@@ -1,0 +1,24 @@
+---
+layout: default
+nav: learnings
+---
+<article class="case-study">
+  <a class="back-link" href="{{ '/learnings/' | relative_url }}">← All learnings</a>
+  <div class="card-meta"><span class="muted">{{ page.date | date: "%b %Y" }}</span></div>
+  <h1>{{ page.title }}</h1>
+  {% if page.summary %}<p class="tagline">{{ page.summary }}</p>{% endif %}
+  {% if page.source %}<p class="muted">Source: {% if page.source_url %}<a href="{{ page.source_url }}">{{ page.source }}</a>{% else %}{{ page.source }}{% endif %}</p>{% endif %}
+  {% if page.concepts %}
+  <div class="chip-row concept-row">
+    {% for key in page.concepts %}{% assign c = site.data.genai_concepts | where: "key", key | first %}<span class="chip">{{ c.name | default: key }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  {% if page.applied_in %}
+  <p class="muted">Applied in:
+    {% for slug in page.applied_in %}{% assign pr = site.projects | where: "slug", slug | first %}{% if pr %}<a href="{{ pr.url | relative_url }}">{{ pr.title }}</a>{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}
+  </p>
+  {% endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

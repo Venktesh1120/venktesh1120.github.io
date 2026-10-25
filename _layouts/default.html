@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% assign page_title = page.title | default: site.data.profile.title %}
+{% assign page_desc = page.summary | default: page.description | default: site.description %}
+<title>{{ page_title }} — {{ site.data.profile.name }}</title>
+<meta name="description" content="{{ page_desc | strip_html | escape }}" />
+<meta property="og:title" content="{{ page_title }} — {{ site.data.profile.name }}" />
+<meta property="og:description" content="{{ page_desc | strip_html | escape }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
+<link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}" />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}"{% if page.nav == 'about' %} class="active"{% endif %}>About</a>
+      {% if site.projects.size > 0 %}<a href="{{ '/work/' | relative_url }}"{% if page.nav == 'work' %} class="active"{% endif %}>Work</a>{% endif %}
+      {% if site.learnings.size > 0 %}<a href="{{ '/learnings/' | relative_url }}"{% if page.nav == 'learnings' %} class="active"{% endif %}>Learnings</a>{% endif %}
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+{{ content }}
+</main>
+
+{% assign p = site.data.profile %}
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="contact-row">
+      <a href="mailto:{{ p.email }}">{{ p.email }}</a>
+      {% if p.linkedin %}<a href="{{ p.linkedin }}">LinkedIn</a>{% endif %}
+      {% if p.github %}<a href="{{ p.github }}">GitHub</a>{% endif %}
+      {% if p.resume_file %}<a href="{{ p.resume_file | relative_url }}" download>Resume (PDF)</a>{% endif %}
+    </div>
+    <div>{{ p.location }}</div>
+    {% if p.open_to %}<div class="open-to">{{ p.open_to }}</div>{% endif %}
+  </div>
+</footer>
+</body>
+</html>

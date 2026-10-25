@@ -1,0 +1,13 @@
+# `type:` values for _projects/ entries, in the order the Work page lists them.
+genai-build:
+  label: GenAI build
+  heading: GenAI builds
+  intro: Things I designed and shipped (or prototyped) with LLMs, with the tradeoffs and evaluation behind them.
+case-study:
+  label: Product case study
+  heading: Product case studies
+  intro: Product work from my roles, written up as problem, user, decision, and outcome.
+teardown:
+  label: Product teardown
+  heading: AI product teardowns
+  intro: Critiques of existing AI products, what they get right, and what I would change.

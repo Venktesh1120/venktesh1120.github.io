@@ -1,0 +1,30 @@
+# Site settings. Content lives in _data/, _projects/ and _learnings/ — see README.md.
+title: Venktesh Kumar Gupta
+description: Product Manager portfolio — case studies, GenAI builds and learning notes.
+url: https://venktesh1120.github.io
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  projects:
+    output: true
+    permalink: /work/:name/
+  learnings:
+    output: true
+    permalink: /learnings/:name/
+
+defaults:
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+  - scope: { path: "", type: learnings }
+    values: { layout: learning }
+
+exclude:
+  - README.md
+  - templates/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

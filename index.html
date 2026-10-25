@@ -1,62 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Portfolio</title>
-<meta name="description" content="Product Management portfolio and case studies." />
-<link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html">Venktesh Kumar Gupta</a>
-    <nav class="site-nav">
-      <a href="index.html" class="active">About</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="projects.html">Projects</a>
-    </nav>
+---
+layout: default
+title: Product Manager
+nav: about
+---
+{% assign p = site.data.profile %}
+{% assign projects = site.projects | sort: "date" | reverse %}
+{% assign featured = projects | where: "featured", true %}
+
+<section class="hero">
+  <h1>{{ p.name }}</h1>
+  <div class="role">{{ p.title }}</div>
+  <p class="tagline">{{ p.tagline }}</p>
+  <p>{{ p.summary }}</p>
+</section>
+
+<div class="cta-row">
+  {% if p.resume_file %}<a class="btn primary" href="{{ p.resume_file | relative_url }}" download>Download Resume</a>{% endif %}
+  {% if projects.size > 0 %}<a class="btn secondary" href="{{ '/work/' | relative_url }}">View Work</a>{% endif %}
+  {% if site.learnings.size > 0 %}<a class="btn secondary" href="{{ '/learnings/' | relative_url }}">Learnings</a>{% endif %}
+</div>
+
+{% include stat-row.html stats=p.stats class="hero-stats" %}
+
+{% comment %} GenAI evidence map: only concepts backed by at least one published project or learning are shown. {% endcomment %}
+{% capture evidence %}
+{% for c in site.data.genai_concepts %}
+  {% assign c_projects = site.projects | where_exp: "x", "x.concepts contains c.key" %}
+  {% assign c_learnings = site.learnings | where_exp: "x", "x.concepts contains c.key" %}
+  {% assign n = c_projects.size | plus: c_learnings.size %}
+  {% if n > 0 %}
+  <div class="concept">
+    <h3>{{ c.name }}</h3>
+    <p class="muted">{{ c.blurb }}</p>
+    <ul>
+      {% for x in c_projects %}<li><a href="{{ x.url | relative_url }}">{{ x.title }}</a> <span class="muted">· {{ site.data.project_types[x.type].label }}</span></li>{% endfor %}
+      {% for x in c_learnings %}<li><a href="{{ x.url | relative_url }}">{{ x.title }}</a> <span class="muted">· Learning</span></li>{% endfor %}
+    </ul>
   </div>
-</header>
+  {% endif %}
+{% endfor %}
+{% endcapture %}
+{% assign evidence_trimmed = evidence | strip %}
+{% if evidence_trimmed != "" %}
+<section>
+  <h2>GenAI Evidence</h2>
+  <p class="section-intro">Each concept links to the work where I applied it.</p>
+  <div class="concept-grid">{{ evidence }}</div>
+</section>
+{% endif %}
 
-<main class="wrap">
-  <section class="hero" id="hero"></section>
+{% if featured.size > 0 %}
+<section>
+  <h2>Featured Work</h2>
+  <div class="card-grid">
+    {% for pr in featured limit: 4 %}{% include project-card.html project=pr %}{% endfor %}
+  </div>
+</section>
+{% endif %}
 
-  <div class="cta-row" id="cta-row"></div>
+{% if p.philosophy %}
+<section>
+  <h2>{{ p.philosophy.heading }}</h2>
+  <p class="philosophy-statement">{{ p.philosophy.statement }}</p>
+  <div class="pipeline-row">
+    {% for step in p.philosophy.pipeline %}<div class="pipeline-step">{{ step }}</div>{% unless forloop.last %}<div class="pipeline-arrow">→</div>{% endunless %}{% endfor %}
+  </div>
+</section>
+{% endif %}
 
-  <div class="hero-stats" id="hero-stats"></div>
+<section>
+  <h2>Experience</h2>
+  {% if site.data.experience.intro %}<p class="section-intro">{{ site.data.experience.intro }}</p>{% endif %}
+  {% for exp in site.data.experience.roles %}
+  <div class="exp-item">
+    <div class="exp-head">
+      <div><span class="company">{{ exp.company }}</span> — <span class="role">{{ exp.role }}</span></div>
+      <div class="meta">{{ exp.location }} | {{ exp.dates }}</div>
+    </div>
+    <ul>{% for b in exp.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+  </div>
+  {% endfor %}
+</section>
 
-  <section id="philosophy-section">
-    <h2 id="philosophy-heading">How I Approach Product</h2>
-    <div id="philosophy"></div>
-  </section>
+<section>
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    {% for group in site.data.skills %}
+    <div class="skill-cat">
+      <h3>{{ group[0] }}</h3>
+      <div class="chip-row">{% for s in group[1] %}<span class="chip">{{ s }}</span>{% endfor %}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
-  <section id="skills-section">
-    <h2>Skills</h2>
-    <div id="skills"></div>
-  </section>
+<section>
+  <h2>Education</h2>
+  {% for e in site.data.education %}
+  <div class="exp-item">
+    <div class="exp-head"><span class="company">{{ e.school }}</span><span class="meta">{{ e.location }} | {{ e.dates }}</span></div>
+    <div>{{ e.degree }}</div>
+  </div>
+  {% endfor %}
+</section>
 
-  <section id="experience-section">
-    <h2>Experience</h2>
-    <p class="section-intro" id="experience-intro"></p>
-    <div id="experience"></div>
-  </section>
-
-  <section id="education-section">
-    <h2>Education</h2>
-    <div id="education"></div>
-  </section>
-
-  <section id="certifications-section">
-    <h2>Certifications</h2>
-    <div id="certifications"></div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap" id="site-footer"></div>
-</footer>
-
-<script src="js/render.js"></script>
-</body>
-</html>
+<section>
+  <h2>Certifications</h2>
+  {% for c in site.data.certifications %}
+  <div class="exp-item">
+    <div class="exp-head"><span class="company">{{ c.name }}</span><span class="meta">{{ c.year }}</span></div>
+    <div>{{ c.issuer }}</div>
+  </div>
+  {% endfor %}
+</section>

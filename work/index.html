@@ -1,0 +1,24 @@
+---
+layout: default
+title: Work
+nav: work
+description: Product case studies, GenAI builds and AI product teardowns.
+---
+{% assign projects = site.projects | sort: "date" | reverse %}
+<section class="page-head">
+  <h1>Work</h1>
+  <p class="tagline">Each entry covers the problem, the user, the approach and its tradeoffs, and how success was measured.</p>
+</section>
+
+{% for t in site.data.project_types %}
+  {% assign group = projects | where: "type", t[0] %}
+  {% if group.size > 0 %}
+  <section>
+    <h2>{{ t[1].heading }}</h2>
+    <p class="section-intro">{{ t[1].intro }}</p>
+    <div class="card-grid">
+      {% for pr in group %}{% include project-card.html project=pr %}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+{% endfor %}

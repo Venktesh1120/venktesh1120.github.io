@@ -1,0 +1,31 @@
+# The GenAI concepts an AI PM is expected to reason about.
+# Tag a project or learning with these keys in its `concepts:` list. The home page
+# "GenAI evidence" map shows only concepts that have at least one published entry,
+# so nothing here is claimed until you have work that backs it up.
+- key: llm-fundamentals
+  name: LLM fundamentals
+  blurb: Tokens, context windows, sampling, hallucination, model capabilities and limits.
+- key: prompting
+  name: Prompt & context design
+  blurb: System prompts, few-shot examples, structured output, context engineering.
+- key: rag
+  name: Retrieval (RAG)
+  blurb: Chunking, embeddings, retrieval quality, grounding and citations.
+- key: evals
+  name: Evaluation
+  blurb: Golden sets, LLM-as-judge, human review, offline vs online metrics.
+- key: agents
+  name: Agents & tool use
+  blurb: Tool calling, multi-step workflows, autonomy vs control, failure recovery.
+- key: fine-tuning
+  name: Fine-tuning vs prompting
+  blurb: When to customise a model, data needs, and the build-vs-buy call.
+- key: safety
+  name: Guardrails & responsible AI
+  blurb: Safety, privacy, bias, abuse cases, human-in-the-loop design.
+- key: cost-latency
+  name: Cost, latency & model choice
+  blurb: Unit economics per request, model routing, caching, speed vs quality.
+- key: ai-ux
+  name: AI UX
+  blurb: Designing for uncertainty, trust, feedback loops and graceful failure.
